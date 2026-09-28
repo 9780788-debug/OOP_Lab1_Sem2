@@ -3,14 +3,15 @@ using Lab31.App.Domain;
 
 namespace Lab31.App.Services;
 
-/// <summary>Access to the persons stored in the data source. Arrays are used instead of collections on purpose.</summary>
+// Інтерфейс репозиторію для доступу до збережених осіб у джерелі даних
 public interface IPersonRepository
 {
+    // Додає нову особу до сховища
     void Add(Person person);
 
-    /// <summary>Reads the data source element by element and returns only the persons that satisfy the predicate.</summary>
+    // Попотоково зчитує джерело даних і повертає тільки тих осіб, які відповідають предикату
     Person[] Find(Predicate<Person> match);
 
-    /// <summary>Removes all persons that satisfy the predicate and returns how many were removed.</summary>
+    // Видаляє всіх осіб, що відповідають предикату, та повертає кількість видалених записів
     int Remove(Predicate<Person> match);
 }
