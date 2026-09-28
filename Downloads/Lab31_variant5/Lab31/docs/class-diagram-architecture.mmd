@@ -1,0 +1,110 @@
+classDiagram
+    direction LR
+
+    namespace Lab31_Storage {
+        class IRecordStorage {
+            <<interface>>
+            +bool Exists
+            +OpenReader() IRecordReader
+            +OpenAppender() IRecordWriter
+            +BeginRewrite() IRecordWriter
+            +CommitRewrite()
+        }
+        class IRecordReader {
+            <<interface>>
+            +ReadRecordHeader(out type, out name) bool
+            +ReadAttribute(out name, out value) bool
+        }
+        class IRecordWriter {
+            <<interface>>
+            +BeginRecord(type, name)
+            +WriteAttribute(name, value)
+            +EndRecord()
+        }
+        class TextFileRecordStorage
+        class TextRecordReader
+        class TextRecordWriter
+    }
+    IRecordStorage <|.. TextFileRecordStorage
+    IRecordReader <|.. TextRecordReader
+    IRecordWriter <|.. TextRecordWriter
+    IRecordStorage ..> IRecordReader : creates
+    IRecordStorage ..> IRecordWriter : creates
+
+    namespace Lab31_App {
+        class ConsoleMenu {
+            +Run()
+        }
+        class IPersonService {
+            <<interface>>
+            +Add(descriptor, values) Person
+            +GetAll() Person[]
+            +FindByLastName(string) Person[]
+            +FindById(string) Person
+            +DeleteById(string) int
+            +FindStudents(course, country) Student[]
+        }
+        class PersonService
+        class IPersonRepository {
+            <<interface>>
+            +Add(Person)
+            +Find(Predicate) Person[]
+            +Remove(Predicate) int
+        }
+        class PersonRepository
+        class IPersonTypeRegistry {
+            <<interface>>
+            +FindByTypeName(string) IPersonDescriptor
+            +GetFor(Person) IPersonDescriptor
+        }
+        class PersonTypeRegistry
+        class IPersonDescriptor {
+            <<interface>>
+            +string TypeName
+            +AttributeSpec[] Attributes
+            +Describes(Person) bool
+            +Create(string[]) Person
+        }
+        class PersonDescriptor~T~ {
+            <<abstract>>
+        }
+        class StudentDescriptor
+        class McdonaldsWorkerDescriptor
+        class ManagerDescriptor
+        class AttributeSpec {
+            +string Name
+            +string Label
+            +bool IsRequired
+            +Validate(string) string
+            +Normalize(string) string
+        }
+        class IPersonAction {
+            <<interface>>
+        }
+        class IDemoDataProvider {
+            <<interface>>
+        }
+        class DemoDataProvider
+        class Person {
+            <<abstract>>
+        }
+    }
+
+    ConsoleMenu --> IPersonService
+    ConsoleMenu --> IPersonTypeRegistry
+    ConsoleMenu --> IPersonAction
+    ConsoleMenu --> IDemoDataProvider
+    IDemoDataProvider <|.. DemoDataProvider
+    IPersonService <|.. PersonService
+    PersonService --> IPersonRepository
+    IPersonRepository <|.. PersonRepository
+    PersonRepository --> IRecordStorage
+    PersonRepository --> IPersonTypeRegistry
+    IPersonTypeRegistry <|.. PersonTypeRegistry
+    PersonTypeRegistry o-- IPersonDescriptor
+    IPersonDescriptor <|.. PersonDescriptor
+    PersonDescriptor <|-- StudentDescriptor
+    PersonDescriptor <|-- McdonaldsWorkerDescriptor
+    PersonDescriptor <|-- ManagerDescriptor
+    IPersonDescriptor *-- AttributeSpec
+    IPersonDescriptor ..> Person : creates

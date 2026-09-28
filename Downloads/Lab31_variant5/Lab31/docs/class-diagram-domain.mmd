@@ -1,0 +1,76 @@
+classDiagram
+    direction TB
+
+    class Person {
+        <<abstract>>
+        +string FirstName
+        +string LastName
+        +string UniqueId*
+        +GetSkill~T~() T
+        +Can~T~() bool
+    }
+    class Student {
+        +int Course
+        +string StudentId
+        +double AverageGrade
+        +string Country
+        +string GradebookNumber
+    }
+    class McdonaldsWorker {
+        +string EmployeeId
+        +string Restaurant
+    }
+    class Manager {
+        +string EmployeeId
+        +string Department
+    }
+    Person <|-- Student
+    Person <|-- McdonaldsWorker
+    Person <|-- Manager
+
+    class ISkill {
+        <<interface>>
+    }
+    class ILearner {
+        <<interface>>
+        +string Mode
+        +int SessionsCompleted
+        +Study()
+    }
+    class ITeacher {
+        <<interface>>
+        +int LessonsGiven
+        +Teach()
+    }
+    class IChessPlayer {
+        <<interface>>
+        +int GamesPlayed
+        +PlayChess()
+    }
+    class StudySkill
+    class TeachSkill
+    class ChessSkill
+    ISkill <|-- ILearner
+    ISkill <|-- ITeacher
+    ISkill <|-- IChessPlayer
+    ILearner <|.. StudySkill
+    ITeacher <|.. TeachSkill
+    IChessPlayer <|.. ChessSkill
+
+    Person "1" *-- "0..*" ISkill : is composed of
+
+    class IPersonAction {
+        <<interface>>
+        +string Name
+        +AppliesTo(Person) bool
+        +Execute(Person) string
+    }
+    class StudyAction
+    class TeachAction
+    class PlayChessAction
+    IPersonAction <|.. StudyAction
+    IPersonAction <|.. TeachAction
+    IPersonAction <|.. PlayChessAction
+    StudyAction ..> ILearner : uses
+    TeachAction ..> ITeacher : uses
+    PlayChessAction ..> IChessPlayer : uses

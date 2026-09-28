@@ -1,0 +1,78 @@
+Student IvanPetrenko
+{ "firstname": "Ivan",
+  "lastname": "Petrenko",
+  "course": "3",
+  "studentId": "KB123456",
+  "averageGrade": "85.5",
+  "country": "Україна",
+  "gradebookNumber": "20210001"};
+
+Student OksanaShevchenko
+{ "firstname": "Oksana",
+  "lastname": "Shevchenko",
+  "course": "3",
+  "studentId": "KB123457",
+  "averageGrade": "92",
+  "country": "Україна",
+  "gradebookNumber": "20210002"};
+
+Student AndriiKovalenko
+{ "firstname": "Andrii",
+  "lastname": "Kovalenko",
+  "course": "2",
+  "studentId": "KB123458",
+  "averageGrade": "74.25",
+  "country": "Україна",
+  "gradebookNumber": "20220003"};
+
+Student JohnSmith
+{ "firstname": "John",
+  "lastname": "Smith",
+  "course": "3",
+  "studentId": "KB123459",
+  "averageGrade": "88",
+  "country": "Poland",
+  "gradebookNumber": "20210004"};
+
+Student MariaBondarenko
+{ "firstname": "Maria",
+  "lastname": "Bondarenko",
+  "course": "3",
+  "studentId": "KB123460",
+  "averageGrade": "95",
+  "country": "Ukraine",
+  "gradebookNumber": "20210005"};
+
+Student DmytroMelnyk
+{ "firstname": "Dmytro",
+  "lastname": "Melnyk",
+  "course": "1",
+  "studentId": "KB123461",
+  "averageGrade": "79",
+  "country": "Україна",
+  "gradebookNumber": "20230006"};
+
+McdonaldsWorker OlenaTkachenko
+{ "firstname": "Olena",
+  "lastname": "Tkachenko",
+  "employeeId": "MC00101",
+  "restaurant": "McDonald's Khreshchatyk"};
+
+McdonaldsWorker SerhiiMarchenko
+{ "firstname": "Serhii",
+  "lastname": "Marchenko",
+  "employeeId": "MC00102",
+  "restaurant": "Unknown"};
+
+Manager NataliaKravchenko
+{ "firstname": "Natalia",
+  "lastname": "Kravchenko",
+  "employeeId": "MG00001",
+  "department": "Operations"};
+
+Manager ViktorLysenko
+{ "firstname": "Viktor",
+  "lastname": "Lysenko",
+  "employeeId": "MG00002",
+  "department": "General"};
+

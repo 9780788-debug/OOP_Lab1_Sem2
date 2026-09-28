@@ -1,0 +1,35 @@
+digraph G {
+rankdir=BT; nodesep=0.45; ranksep=0.7; fontname="Helvetica"; node [fontname="Helvetica"]; edge [fontname="Helvetica"];
+splines=ortho; bgcolor=white;
+"Person" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E8EEF9" ALIGN="CENTER" CELLPADDING="4"><B><I>Person</I></B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+FirstName : string<BR ALIGN="LEFT"/>+LastName : string<BR ALIGN="LEFT"/>+UniqueId : string {abstract}<BR ALIGN="LEFT"/>+GetSkill&lt;T&gt;() : T<BR ALIGN="LEFT"/>+Can&lt;T&gt;() : bool<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"Student" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E8EEF9" ALIGN="CENTER" CELLPADDING="4"><B>Student</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+Course : int<BR ALIGN="LEFT"/>+StudentId : string<BR ALIGN="LEFT"/>+AverageGrade : double<BR ALIGN="LEFT"/>+Country : string<BR ALIGN="LEFT"/>+GradebookNumber : string<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"McdonaldsWorker" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E8EEF9" ALIGN="CENTER" CELLPADDING="4"><B>McdonaldsWorker</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+EmployeeId : string<BR ALIGN="LEFT"/>+Restaurant : string<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"Manager" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E8EEF9" ALIGN="CENTER" CELLPADDING="4"><B>Manager</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+EmployeeId : string<BR ALIGN="LEFT"/>+Department : string<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"ISkill" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><FONT POINT-SIZE="9">«interface»</FONT><BR/><B>ISkill</B></TD></TR></TABLE>>];
+"ILearner" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><FONT POINT-SIZE="9">«interface»</FONT><BR/><B>ILearner</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+Mode : string<BR ALIGN="LEFT"/>+SessionsCompleted : int<BR ALIGN="LEFT"/>+Study()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"ITeacher" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><FONT POINT-SIZE="9">«interface»</FONT><BR/><B>ITeacher</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+LessonsGiven : int<BR ALIGN="LEFT"/>+Teach()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"IChessPlayer" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><FONT POINT-SIZE="9">«interface»</FONT><BR/><B>IChessPlayer</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+GamesPlayed : int<BR ALIGN="LEFT"/>+PlayChess()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"StudySkill" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><B>StudySkill</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+Study()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"TeachSkill" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><B>TeachSkill</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+Teach()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"ChessSkill" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#FFF3D6" ALIGN="CENTER" CELLPADDING="4"><B>ChessSkill</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+PlayChess()<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"IPersonAction" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E6F4EA" ALIGN="CENTER" CELLPADDING="4"><FONT POINT-SIZE="9">«interface»</FONT><BR/><B>IPersonAction</B></TD></TR><TR><TD ALIGN="LEFT" CELLPADDING="4"><FONT POINT-SIZE="10">+Name : string<BR ALIGN="LEFT"/>+AppliesTo(Person) : bool<BR ALIGN="LEFT"/>+Execute(Person) : string<BR ALIGN="LEFT"/></FONT></TD></TR></TABLE>>];
+"StudyAction" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E6F4EA" ALIGN="CENTER" CELLPADDING="4"><B>StudyAction</B></TD></TR></TABLE>>];
+"TeachAction" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E6F4EA" ALIGN="CENTER" CELLPADDING="4"><B>TeachAction</B></TD></TR></TABLE>>];
+"PlayChessAction" [shape=plain, label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" BGCOLOR="white"><TR><TD BGCOLOR="#E6F4EA" ALIGN="CENTER" CELLPADDING="4"><B>PlayChessAction</B></TD></TR></TABLE>>];
+"Student" -> "Person" [arrowhead=empty];
+"McdonaldsWorker" -> "Person" [arrowhead=empty];
+"Manager" -> "Person" [arrowhead=empty];
+"ILearner" -> "ISkill" [arrowhead=empty];
+"ITeacher" -> "ISkill" [arrowhead=empty];
+"IChessPlayer" -> "ISkill" [arrowhead=empty];
+"StudySkill" -> "ILearner" [arrowhead=empty, style=dashed];
+"TeachSkill" -> "ITeacher" [arrowhead=empty, style=dashed];
+"ChessSkill" -> "IChessPlayer" [arrowhead=empty, style=dashed];
+"Person" -> "ISkill" [dir=both, arrowtail=diamond, arrowhead=none, label="skills 0..*", fontsize=9];
+"StudyAction" -> "IPersonAction" [arrowhead=empty, style=dashed];
+"TeachAction" -> "IPersonAction" [arrowhead=empty, style=dashed];
+"PlayChessAction" -> "IPersonAction" [arrowhead=empty, style=dashed];
+"StudyAction" -> "ILearner" [arrowhead=vee, style=dashed];
+"TeachAction" -> "ITeacher" [arrowhead=vee, style=dashed];
+"PlayChessAction" -> "IChessPlayer" [arrowhead=vee, style=dashed];
+}
